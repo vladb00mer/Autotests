@@ -31,12 +31,12 @@ double getOperand2() {
     return Double.parseDouble(operand2.trim());
 }
 // result to double
-double getResult() {
+public double getResult() {
 
     return Double.parseDouble(result.trim());
 }
 // local result
-double getLocalResult() {
+public double getLocalResult() {
 
     return localResult;
 }
