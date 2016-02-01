@@ -17,7 +17,7 @@ public class GodTest {
     public void setUp() {
         
         expression = new Expression ("1","2","+","3");
-        expression1 = new Expression ("1","2","+","5");
+        expression1 = new Expression ("1","2","+","4");
     }
     
     @After
@@ -25,9 +25,15 @@ public class GodTest {
         
         expression = null;
     }
+    
     @Test
-    public void test() {
-    assertTrue (expression.getLocalResult() == expression.getResult());
-    assertFalse (expression1.getLocalResult() == expression1.getResult());
+    public void testTrue() {
+    
+        assertTrue (expression.getLocalResult() == expression.getResult());
     }    
+    @Test
+    public void testFalse() {
+        
+        assertFalse (expression1.getLocalResult() == expression1.getResult());
+    }
 }
