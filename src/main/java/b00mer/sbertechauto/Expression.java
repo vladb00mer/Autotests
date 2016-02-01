@@ -35,6 +35,12 @@ double getResult() {
 
     return Double.parseDouble(result.trim());
 }
+// local result
+double getLocalResult() {
+
+    return localResult;
+}
+
 // making operation
 private void makeOperation() {
 
