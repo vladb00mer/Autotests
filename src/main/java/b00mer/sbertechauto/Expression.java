@@ -48,6 +48,6 @@ private void makeOperation() {
     else if (operation.trim().equals("-")) localResult = getOperand1()-getOperand2();
     else if (operation.trim().equals("*")) localResult = getOperand1()*getOperand2();
     else if (operation.trim().equals("/")) localResult = getOperand1()/getOperand2();
-    else localResult = null;
+    else    localResult = null;
 }
 }
