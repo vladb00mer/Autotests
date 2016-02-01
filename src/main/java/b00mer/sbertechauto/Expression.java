@@ -3,14 +3,14 @@ package b00mer.sbertechauto;
 public class Expression {
 
 //variable declaration
-String operand1, operand2, operation, result = new String();
+String operand1, operand2, operation, result;
 Double localResult;
 
 //default constructor
 public Expression() {}
 
 //overloaded constructor
-public Expression(String operand1, String operand2, String operation, String result) throws Exception {
+public Expression(String operand1, String operand2, String operation, String result) {
 
     this.operand1 = operand1;
     this.operand2 = operand2;
