@@ -1,6 +1,7 @@
 package b00mer.sbertechauto.autotests;
 
 import b00mer.sbertechauto.Expression;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,7 +9,7 @@ import static org.junit.Assert.*;
 
 public class GodTest {
     
-    Expression expression, expression1;
+    ArrayList<Expression> expressionList = new ArrayList();
     
     public GodTest() {
     }
@@ -16,24 +17,23 @@ public class GodTest {
     @Before
     public void setUp() {
         
-        expression = new Expression ("1","2","+","3");
-        expression1 = new Expression ("1","2","+","4");
+        expressionList.add(new Expression ("1","1","+","2"));
+        expressionList.add(new Expression ("2","1","-","1"));
+        expressionList.add(new Expression ("2","2","*","4"));
+        expressionList.add(new Expression ("6","2","/","3"));
     }
     
     @After
     public void tearDown() {
         
-        expression = null;
+        expressionList = null;
     }
     
     @Test
-    public void testTrue() {
+    public void test() {
     
-        assertTrue (expression.getLocalResult() == expression.getResult());
-    }    
-    @Test
-    public void testFalse() {
-        
-        assertFalse (expression1.getLocalResult() == expression1.getResult());
+        expressionList.stream().forEach((exp) -> {
+            assertTrue (exp.getLocalResult() == exp.getResult());
+        });
     }
 }
