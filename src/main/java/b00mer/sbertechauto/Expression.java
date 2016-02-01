@@ -4,20 +4,20 @@ public class Expression {
 
 //variable declaration
 String operand1, operand2, operation, result = new String();
-Double gotResult;
+Double localResult;
 
 //default constructor
 public Expression() {}
 
 //overloaded constructor
-public Expression(String operand1, String operand2, String operation, String result) {
+public Expression(String operand1, String operand2, String operation, String result) throws Exception {
 
     this.operand1 = operand1;
     this.operand2 = operand2;
     this.operation = operation;
     this.result = result;
     
-    
+    makeOperation();
 }
 
 //operand1 to double
@@ -36,12 +36,12 @@ double getResult() {
     return Double.parseDouble(result.trim());
 }
 // making operation
-void makeOperation() throws Exception {
+private void makeOperation() {
 
-    if      (operation.trim().equals("+")) gotResult = getOperand1()+getOperand2();
-    else if (operation.trim().equals("-")) gotResult = getOperand1()-getOperand2();
-    else if (operation.trim().equals("*")) gotResult = getOperand1()*getOperand2();
-    else if (operation.trim().equals("/")) gotResult = getOperand1()/getOperand2();
-    else gotResult = null;
+    if      (operation.trim().equals("+")) localResult = getOperand1()+getOperand2();
+    else if (operation.trim().equals("-")) localResult = getOperand1()-getOperand2();
+    else if (operation.trim().equals("*")) localResult = getOperand1()*getOperand2();
+    else if (operation.trim().equals("/")) localResult = getOperand1()/getOperand2();
+    else localResult = null;
 }
 }
