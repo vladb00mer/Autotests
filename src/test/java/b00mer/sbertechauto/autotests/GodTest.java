@@ -3,6 +3,7 @@ package b00mer.sbertechauto.autotests;
 import b00mer.sbertechauto.CSVFileReader;
 import b00mer.sbertechauto.Expression;
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,33 +11,29 @@ import static org.junit.Assert.*;
 
 public class GodTest {
     
-    ArrayList<Expression> expressionList;
-    
-    public GodTest() {
-    
-        CSVFileReader csvFileReader = new CSVFileReader("/home/b00mer/CSV/testData.csv");
-        expressionList = new ArrayList();
-    }
+    String filePath = "/home/b00mer/CSV/testData.csv";
+    CSVFileReader csvFileReader;
+    List<Expression> expList;
     
     @Before
     public void setUp() {
-        
-        expressionList.add(new Expression ("1","2","+","3"));
-        expressionList.add(new Expression ("2","1","-","1"));
-        expressionList.add(new Expression ("2","2","*","4"));
-        expressionList.add(new Expression ("6","2","/","3"));
+    
+        csvFileReader = new CSVFileReader(filePath);
+        expList = csvFileReader.getArrayList();
     }
     
     @After
     public void tearDown() {
         
-        expressionList = null;
+        csvFileReader = null;
+        expList = null;
+        filePath = null;
     }
     
     @Test
     public void test() {
         
-        expressionList.stream().forEach((exp) -> {
+        expList.stream().forEach((exp) -> {
             assertTrue (exp.getLocalResult() == exp.getResult());
         });
     }
