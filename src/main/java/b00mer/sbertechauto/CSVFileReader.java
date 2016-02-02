@@ -16,7 +16,7 @@ public class CSVFileReader {
     File csvFile;
     CSVReader csvReader;    
     
-// чтение файла в объект CSVReader    
+// чтение файла в объект CSVReader в конструкторе   
     public CSVFileReader(String filePath) {
     
         try {
@@ -26,7 +26,7 @@ public class CSVFileReader {
             System.out.println("Ошибка чтения файла: "+csvFile.getAbsolutePath()+"\n");}
     }
 
-// получение коллекции строковых массивов
+// получение коллекции Expression
     public List<Expression> getArrayList() {
         
         List<String[]> csvArrayList = new ArrayList();
