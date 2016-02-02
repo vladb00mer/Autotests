@@ -17,7 +17,7 @@ public Expression(String operand1, String operand2, String operation, String res
     this.operation = operation;
     this.result = result;
     
-    makeOperation();
+    this.localResult = makeOperation();
 }
 
 //operand1 to double
@@ -42,12 +42,25 @@ public double getLocalResult() {
 }
 
 // making operation
-private void makeOperation() {
+private Double makeOperation() {
 
-    if      (operation.trim().equals("+")) localResult = getOperand1()+getOperand2();
-    else if (operation.trim().equals("-")) localResult = getOperand1()-getOperand2();
-    else if (operation.trim().equals("*")) localResult = getOperand1()*getOperand2();
-    else if (operation.trim().equals("/")) localResult = getOperand1()/getOperand2();
-    else    localResult = null;
+    switch (operation.trim()) {
+        case "+":
+            localResult = getOperand1()+getOperand2();
+            break;
+        case "-":
+            localResult = getOperand1()-getOperand2();
+            break;
+        case "*":
+            localResult = getOperand1()*getOperand2();
+            break;
+        case "/":
+            localResult = getOperand1()/getOperand2();
+            break;
+        default:
+            localResult = null;
+            break;
+    }
+    return localResult;
 }
 }
