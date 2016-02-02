@@ -14,10 +14,9 @@ public class CSVFileReader {
 
     CSVReader csvReader;
     File csvFile;
-    String filePath = "/home/b00mer/CSV/testData.csv";
     ArrayList<String[]> CSVArrayList;
     
-    public CSVFileReader() {
+    public CSVFileReader(String filePath) {
     
         try {
             csvFile = new File(filePath);
