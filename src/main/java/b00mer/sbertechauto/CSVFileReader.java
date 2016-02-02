@@ -7,35 +7,44 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CSVFileReader {
 
-    CSVReader csvReader;
     File csvFile;
-    ArrayList<String[]> CSVArrayList;
+    CSVReader csvReader;    
     
+// чтение файла в объект CSVReader    
     public CSVFileReader(String filePath) {
     
         try {
-            csvFile = new File(filePath);
-            csvReader = new CSVReader(new FileReader(csvFile));
+            csvFile = new File(filePath.trim());
+            csvReader = new CSVReader(new FileReader(csvFile), ';');
         } catch (FileNotFoundException ex) {
-            System.out.println("Ошибка чтения файла: "+csvFile.getAbsolutePath()+"\n");
-            Logger.getLogger(CSVFileReader.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            System.out.println("Ошибка чтения файла: "+csvFile.getAbsolutePath()+"\n");}
     }
-    
-    public void getArrayList() {
+
+// получение коллекции строковых массивов
+    public List<Expression> getArrayList() {
+        
+        List<String[]> csvArrayList = new ArrayList();
+        List<Expression> expArrayList = new ArrayList();        
         
         try {
-            CSVArrayList = (ArrayList<String[]>) csvReader.readAll();
+            csvArrayList = csvReader.readAll();
+            csvReader.close();
         } catch (IOException ex) {
             System.out.println("Ошибка чтения в ArrayList!\n");
             Logger.getLogger(CSVFileReader.class.getName()).log(Level.SEVERE, null, ex);
         }
-                
-    }
-    
+        
+        for (String[] line: csvArrayList) {
+        
+            expArrayList.add(new Expression(line[0],line[1],line[2],line[3]));
+        }
+        
+        return expArrayList;
+    }       
 }
