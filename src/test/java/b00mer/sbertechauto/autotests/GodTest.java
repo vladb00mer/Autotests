@@ -1,5 +1,6 @@
 package b00mer.sbertechauto.autotests;
 
+import b00mer.sbertechauto.CSVFileReader;
 import b00mer.sbertechauto.Expression;
 import java.util.ArrayList;
 import org.junit.After;
@@ -12,7 +13,8 @@ public class GodTest {
     ArrayList<Expression> expressionList;
     
     public GodTest() {
-        
+    
+        CSVFileReader csvFileReader = new CSVFileReader("/home/b00mer/CSV/testData.csv");
         expressionList = new ArrayList();
     }
     
