@@ -1,2 +1,1 @@
-# Autotests
-autotests repository
+read me please! I'm so lonely
