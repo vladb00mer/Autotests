@@ -5,12 +5,26 @@
     <artifactId>SbertechAuto</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <name>SbertechAuto</name>
+    <description>Allure JUnit autotesting</description>
+    <parent>
+        <groupId>ru.yandex.qatools.allure</groupId>
+        <artifactId>allure-examples-parent</artifactId>
+        <version>1.0</version>
+    </parent>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <allure.version>1.4.11</allure.version>
+        <aspectj.version>1.8.5</aspectj.version>
+    </properties>
     <dependencies>
         <dependency>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-compiler-plugin</artifactId>
-	<version>3.5</version>
-        </dependency>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-compiler-plugin</artifactId>
+	    <version>3.5</version>
+         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -46,13 +60,6 @@
             <type>jar</type>
         </dependency>
     </dependencies>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <allure.version>1.4.11</allure.version>
-        <aspectj.version>1.8.5</aspectj.version>
-    </properties>
     <build>
     <plugins>
         <plugin>
@@ -79,6 +86,26 @@
                 </dependency>
             </dependencies>
         </plugin>
+        <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.2.10.v20150310</version>
+                <configuration>
+                    <webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin</webAppSourceDirectory>
+                    <stopKey>stop</stopKey>
+                    <stopPort>1234</stopPort>
+                </configuration>
+        </plugin>
     </plugins>
-</build>
+    </build>
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>ru.yandex.qatools.allure</groupId>
+                <artifactId>allure-maven-plugin</artifactId>
+                <version>2.0</version>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
