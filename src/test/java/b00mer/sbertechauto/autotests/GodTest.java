@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
         
 public class GodTest {
     
-    String filePath = "./Resources/CSV/testData.csv";
+    String filePath = "./resources/CSV/testData.csv";
     CSVFileReader csvFileReader;
     List<Expression> expList;
     
