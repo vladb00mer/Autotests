@@ -1,6 +1,6 @@
 package b00mer.sbertechauto;
 
-import au.com.bytecode.opencsv.CSVReader;
+import com.opencsv.CSVReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
