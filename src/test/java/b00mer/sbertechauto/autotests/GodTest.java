@@ -2,7 +2,6 @@ package b00mer.sbertechauto.autotests;
 
 import b00mer.sbertechauto.CSVFileReader;
 import b00mer.sbertechauto.Expression;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
@@ -31,10 +30,10 @@ public class GodTest {
     }
     
     @Test
-    public void test() {
+    public void checkForResultEquality() {
         
         expList.stream().forEach((exp) -> {
             assertTrue (exp.getLocalResult() == exp.getResult());
         });
     }
-}
+}   
