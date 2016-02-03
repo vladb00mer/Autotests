@@ -37,4 +37,4 @@ public class GodTest {
             assertTrue (exp.getLocalResult() == exp.getResult());
         }
     }
-}   
+}
