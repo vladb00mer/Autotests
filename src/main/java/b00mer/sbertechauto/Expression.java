@@ -2,14 +2,9 @@ package b00mer.sbertechauto;
 
 public class Expression {
 
-//variable declaration
 String operand1, operand2, operation, result;
 Double localResult;
 
-//default constructor
-public Expression() {}
-
-//overloaded constructor
 public Expression(String operand1, String operand2, String operation, String result) {
 
     this.operand1 = operand1;
@@ -19,7 +14,7 @@ public Expression(String operand1, String operand2, String operation, String res
     
     this.localResult = makeOperation();
 }
-
+        
 double getOperand1() {
 
     return Double.parseDouble(operand1.trim());
