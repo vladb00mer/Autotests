@@ -1,5 +1,7 @@
 package b00mer.sbertechauto;
 
+import ru.yandex.qatools.allure.annotations.Step;
+
 public class Expression {
 
 //variable declaration
@@ -42,7 +44,7 @@ public double getLocalResult() {
 }
 
 // making operation
-
+@Step
 private Double makeOperation() {
 
     switch (operation.trim()) {
