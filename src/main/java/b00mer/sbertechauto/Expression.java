@@ -42,6 +42,7 @@ public double getLocalResult() {
 }
 
 // making operation
+
 private Double makeOperation() {
 
     switch (operation.trim()) {
