@@ -7,10 +7,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+        
+        
 public class GodTest {
     
-    String filePath = "/home/b00mer/CSV/testData.csv";
+    String filePath = "./Resources/CSV/testData.csv";
     CSVFileReader csvFileReader;
     List<Expression> expList;
     
