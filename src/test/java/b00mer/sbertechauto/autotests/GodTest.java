@@ -33,8 +33,8 @@ public class GodTest {
     @Test
     public void checkForResultEquality() {
         
-        expList.stream().forEach((exp) -> {
+        for (Expression exp: expList) {
             assertTrue (exp.getLocalResult() == exp.getResult());
-        });
+        }
     }
 }   
