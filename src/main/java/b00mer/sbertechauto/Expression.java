@@ -1,7 +1,5 @@
 package b00mer.sbertechauto;
 
-import ru.yandex.qatools.allure.annotations.Step;
-
 public class Expression {
 
 //variable declaration
@@ -22,29 +20,27 @@ public Expression(String operand1, String operand2, String operation, String res
     this.localResult = makeOperation();
 }
 
-//operand1 to double
 double getOperand1() {
 
     return Double.parseDouble(operand1.trim());
 }
-//operand2 to double
 double getOperand2() {
 
     return Double.parseDouble(operand2.trim());
 }
-// result to double
+public String getOperation() {
+
+    return operation;
+}
 public double getResult() {
 
     return Double.parseDouble(result.trim());
 }
-// local result
 public double getLocalResult() {
 
     return localResult;
 }
 
-// making operation
-@Step
 private Double makeOperation() {
 
     switch (operation.trim()) {
