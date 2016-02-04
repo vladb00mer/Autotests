@@ -21,12 +21,16 @@ public class ExpressionTest {
     Expression exp;
     Double localResult;
     
+    @Title("The beginning")
+    @Description("This is the beginning of test suite")
     @Before
     public void setUp() {
     
         csvFileReader = new CSVFileReader(filePath);
         expList = csvFileReader.getArrayList();
     }
+    @Title("The end")
+    @Description("This is the end of test suite")
     @After
     public void tearDown() {
         
@@ -41,7 +45,7 @@ public class ExpressionTest {
     public void checkAllRecords() {
         
         for (Expression exp: expList) {
-            assertTrue (exp.getLocalResult() == exp.getResult());
+            checkRecord(exp.getOperand1(),exp.getOperation(),exp.getOperand2(),exp.getResult());
             
         }
     }*/
