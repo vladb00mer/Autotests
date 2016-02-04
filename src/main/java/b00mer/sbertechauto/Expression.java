@@ -11,19 +11,21 @@ public Expression(String operand1, String operand2, String operation, String res
     this.operand2 = operand2;
     this.operation = operation;
     this.result = result;
+    
+    setLocalResult();
 }
         
-double getOperand1() {
+public double getOperand1() {
 
     return Double.parseDouble(operand1.trim());
-}
-double getOperand2() {
-
-    return Double.parseDouble(operand2.trim());
 }
 public String getOperation() {
 
     return operation;
+}
+public double getOperand2() {
+
+    return Double.parseDouble(operand2.trim());
 }
 public double getResult() {
 
@@ -34,25 +36,24 @@ public double getLocalResult() {
     return localResult;
 }
 
-public boolean checkOperation(double a, String oper, double b, double res) {
+private void setLocalResult() {
 
-    switch (oper.trim()) {
+    switch (getOperation().trim()) {
         case "+":
-            localResult = a+b;
+            localResult = getOperand1()+getOperand2();
             break;
         case "-":
-            localResult = a-b;
+            localResult = getOperand1()-getOperand2();
             break;
         case "*":
-            localResult = a*b;
+            localResult = getOperand1()*getOperand2();
             break;
         case "/":
-            localResult = a/b;
+            localResult = getOperand1()/getOperand2();
             break;
         default:
             localResult = null;
             break;
     }
-    return res == localResult;
 }
 }

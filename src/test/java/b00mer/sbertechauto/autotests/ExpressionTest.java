@@ -19,17 +19,14 @@ public class ExpressionTest {
     CSVFileReader csvFileReader;
     List<Expression> expList;
     Expression exp;
+    Double localResult;
     
-    @Title("Preparation")
-    @Description("This is test suite preparations")
     @Before
     public void setUp() {
     
         csvFileReader = new CSVFileReader(filePath);
         expList = csvFileReader.getArrayList();
     }
-    @Title("Finishing")
-    @Description("This is test suite finishing")
     @After
     public void tearDown() {
         
@@ -38,6 +35,7 @@ public class ExpressionTest {
         filePath = null;
         exp = null;
     }
+    
     // for dynamic record count
     /* @Test
     public void checkAllRecords() {
@@ -47,43 +45,44 @@ public class ExpressionTest {
             
         }
     }*/
+
     // for fixed record count
     @Title("First Record")
     @Description("This is first test case")
-    @Test
-    public void getZeroRecord() {
+    @Test()
+    public void testFirstRecord() {
     
-        exp = expList.get(0);
-        assertTrue (exp.getLocalResult() == exp.getResult());
+        exp = expList.get(0);        
+        checkRecord(exp.getOperand1(),exp.getOperation(),exp.getOperand2(),exp.getResult());
     }
-    @Step()
-    public void checkZeroRecord() {
-    
-        
-    }
-    
     @Title("Second Record")
     @Description("This is second test case")
-    @Test
-    public void checkFirstRecord() {
+    @Test()
+    public void testSecondRecord() {
     
-        exp = expList.get(1);
-        assertTrue (exp.getLocalResult() == exp.getResult());
+        exp = expList.get(1);        
+        checkRecord(exp.getOperand1(),exp.getOperation(),exp.getOperand2(),exp.getResult());
     }
     @Title("Third Record")
     @Description("This is third test case")
-    @Test
-    public void checkSecondRecord() {
+    @Test()
+    public void testThirdRecord() {
     
-        exp = expList.get(2);
-        assertTrue (exp.getLocalResult() == exp.getResult());
+        exp = expList.get(2);        
+        checkRecord(exp.getOperand1(),exp.getOperation(),exp.getOperand2(),exp.getResult());
     }
     @Title("Fourth Record")
     @Description("This is fourth test case")
-    @Test
-    public void checkThirdRecord() {
+    @Test()
+    public void testFourthRecord() {
     
-        exp = expList.get(3);
-        assertTrue (exp.getLocalResult() == exp.getResult());
-    }
-}    
+        exp = expList.get(3);        
+        checkRecord(exp.getOperand1(),exp.getOperation(),exp.getOperand2(),exp.getResult());
+    }    
+    
+    @Step("Check if {0} {1} {2} = {3}")
+    public void checkRecord(double a, String b, double c, double d) {
+    
+        assertTrue (exp.getLocalResult() == exp.getResult());        
+    }   
+}
