@@ -7,9 +7,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;     
+import ru.yandex.qatools.allure.annotations.Description;
+import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
        
 @Title("Test Suite")
+@Description("This is test suite")
 public class ExpressionTest {
     
     String filePath = "./resources/CSV/testData.csv";
@@ -18,6 +21,7 @@ public class ExpressionTest {
     Expression exp;
     
     @Title("Preparation")
+    @Description("This is test suite preparations")
     @Before
     public void setUp() {
     
@@ -25,6 +29,7 @@ public class ExpressionTest {
         expList = csvFileReader.getArrayList();
     }
     @Title("Finishing")
+    @Description("This is test suite finishing")
     @After
     public void tearDown() {
         
@@ -44,13 +49,21 @@ public class ExpressionTest {
     }*/
     // for fixed record count
     @Title("First Record")
+    @Description("This is first test case")
     @Test
-    public void checkZeroRecord() {
+    public void getZeroRecord() {
     
         exp = expList.get(0);
         assertTrue (exp.getLocalResult() == exp.getResult());
     }
+    @Step()
+    public void checkZeroRecord() {
+    
+        
+    }
+    
     @Title("Second Record")
+    @Description("This is second test case")
     @Test
     public void checkFirstRecord() {
     
@@ -58,6 +71,7 @@ public class ExpressionTest {
         assertTrue (exp.getLocalResult() == exp.getResult());
     }
     @Title("Third Record")
+    @Description("This is third test case")
     @Test
     public void checkSecondRecord() {
     
@@ -65,6 +79,7 @@ public class ExpressionTest {
         assertTrue (exp.getLocalResult() == exp.getResult());
     }
     @Title("Fourth Record")
+    @Description("This is fourth test case")
     @Test
     public void checkThirdRecord() {
     
