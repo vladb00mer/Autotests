@@ -4,12 +4,9 @@ import b00mer.sbertechauto.CSVFileReader;
 import b00mer.sbertechauto.Expression;
 import java.util.List;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;     
-import org.junit.BeforeClass;
-import org.junit.Ignore;
 import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
@@ -58,13 +55,6 @@ public class ExpressionTest {
     @Step("Check if {0} {1} {2} = {3}")
     public void checkRecord(double a, String b, double c, double d, Expression exp) {
     
-        System.out.println("\ncheck if " + exp.getLocalResult() + " = " + exp.getResult());
-        
         assertTrue (exp.getLocalResult() == exp.getResult());  
-        
-        if (exp.getLocalResult() == exp.getResult()) 
-            System.out.println("the result is true");
-        else 
-            System.out.println("the result is false"); 
     }
 }
