@@ -55,6 +55,6 @@ public class ExpressionTest {
     @Step("Check if {0} {1} {2} = {3}")
     public void checkRecord(double a, String b, double c, double d, Expression exp) {
     
-        assertTrue (exp.getLocalResult() == exp.getResult());  
+        assertEquals (exp.getLocalResult(), exp.getResult(), 0);  
     }
 }
