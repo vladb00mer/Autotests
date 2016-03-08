@@ -35,7 +35,7 @@ public double getLocalResult() {
 
     return localResult;
 }
-
+// вычисление результата выражения
 private void setLocalResult() {
 
     switch (getOperation().trim()) {
