@@ -15,7 +15,7 @@ import ru.yandex.qatools.allure.annotations.Title;
 @Description("This is test suite")
 public class ExpressionTest {
     
-    String filePath = "./resources/CSV/testData.csv";
+    String filePath;
     CSVFileReader csvFileReader;
     List<Expression> expList;
     Expression exp;
@@ -25,47 +25,13 @@ public class ExpressionTest {
     @Description("This is the beginning of test suite")
     @Before
     public void setUp() {
-    
+        
+        filePath = "./resources/CSV/testData.csv";
         csvFileReader = new CSVFileReader(filePath);
         expList = csvFileReader.getArrayList();
         counter = 0;
     }
-    
-    @Title("The end")
-    @Description("This is the end of test suite")
-    @After
-    public void tearDown() {
-        
-        csvFileReader = null;
-        expList = null;
-        filePath = null;
-        exp = null;
-    }
-    
-    // проверка первого выражения
-    @Title("The test")
-    @Description("This is the test") 
-    @Test
-    public void oneExpTest() {
-                
-        Expression expOne = expList.get(counter);
-        checkRecord(expOne.getOperand1(),expOne.getOperation(),expOne.getOperand2(),expOne.getResult(), expOne);
-        counter++;
-    }
-    
-    // проверка остальных выражений
-    @Title("The test")
-    @Description("This is the test") 
-    @Test
-    public void separateTests() {
-    
-        for (int i = 1; i < expList.size(); i++) {
-            oneExpTest();
-        }
-    }
-
-/*  
-    // перебор всех элементов коллекции выражений в одном тесте
+   
     @Title("The tests")
     @Description("This is the tests") 
     @Test
@@ -76,10 +42,21 @@ public class ExpressionTest {
             
         }
     }
-*/    
+    
     @Step("Check if {0} {1} {2} = {3}")
     public void checkRecord(double a, String b, double c, double d, Expression exp) {
     
         assertEquals (exp.getLocalResult(), exp.getResult(), 0);  
+    }
+
+    @Title("The end")
+    @Description("This is the end of test suite")
+    @After
+    public void tearDown() {
+        
+        csvFileReader = null;
+        expList = null;
+        filePath = null;
+        exp = null;
     }
 }
