@@ -26,18 +26,13 @@ public class CSVFileReader {
     }
 
 // получение коллекции Expression
-    public List<Expression> getArrayList() {
+    public List<Expression> getArrayList() throws IOException {
         
         List<String[]> csvArrayList = new ArrayList();
         List<Expression> expArrayList = new ArrayList();        
         
-        try {
-            csvArrayList = csvReader.readAll();
-            csvReader.close();
-        } catch (IOException ex) {
-            System.out.println("Ошибка чтения в ArrayList!\n");
-            Logger.getLogger(CSVFileReader.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        csvArrayList = csvReader.readAll();
+        csvReader.close();
         
         for (String[] line: csvArrayList) {
         

@@ -2,6 +2,7 @@ package b00mer.sbertechauto.autotests;
 
 import b00mer.sbertechauto.CSVFileReader;
 import b00mer.sbertechauto.Expression;
+import java.io.IOException;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
@@ -24,7 +25,7 @@ public class ExpressionTest {
     @Title("The beginning")
     @Description("This is the beginning of test suite")
     @Before
-    public void setUp() {
+    public void setUp() throws IOException {
         
         filePath = "./resources/CSV/testData.csv";
         csvFileReader = new CSVFileReader(filePath);
